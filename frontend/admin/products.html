@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Products - ShopEase Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">&#128722;</span>
+        <span class="logo-text">ShopEase</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="../products.html" class="nav-link">Products</a></li>
+        <li><a href="../cart.html" class="nav-link cart-link">
+          Cart <span class="cart-count" id="navCartCount">0</span>
+        </a></li>
+        <li class="nav-auth" id="navAuth">
+          <a href="../login.html" class="nav-link">Login</a>
+          <a href="../register.html" class="nav-link">Register</a>
+        </li>
+        <li class="nav-user" id="navUser" style="display: none;">
+          <a href="../profile.html" class="nav-link" id="navUserName">Profile</a>
+          <a href="#" class="nav-link" id="navLogout">Logout</a>
+        </li>
+        <li class="nav-admin" id="navAdmin" style="display: none;">
+          <a href="dashboard.html" class="nav-link">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Admin Products Section -->
+  <section class="admin-section">
+    <div class="container">
+      <h2 class="section-title">Manage Products</h2>
+      <div class="admin-actions">
+        <button class="btn btn-primary" id="addProductBtn">Add New Product</button>
+      </div>
+      <div class="admin-table-container">
+        <table class="admin-table" id="productsTable">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsTableBody">
+            <tr><td colspan="6" class="loading">Loading products...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="modal-close" id="closeModal">&times;</span>
+      <h3 id="modalTitle">Add Product</h3>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input type="text" id="productName" required>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Description</label>
+          <textarea id="productDescription" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Price</label>
+          <input type="number" id="productPrice" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="productCategory">Category</label>
+          <select id="productCategory" required>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Home">Home</option>
+            <option value="Books">Books</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="productImage">Image URL</label>
+          <input type="text" id="productImage" required>
+        </div>
+        <div class="form-group">
+          <label for="productStock">Stock</label>
+          <input type="number" id="productStock" required>
+        </div>
+        <div class="form-group">
+          <label for="productRating">Rating (0-5)</label>
+          <input type="number" id="productRating" step="0.1" min="0" max="5" value="0">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Save Product</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 ShopEase. Built for CodeAlpha Internship.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Orders - ShopEase Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">&#128722;</span>
+        <span class="logo-text">ShopEase</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="../products.html" class="nav-link">Products</a></li>
+        <li><a href="../cart.html" class="nav-link cart-link">
+          Cart <span class="cart-count" id="navCartCount">0</span>
+        </a></li>
+        <li class="nav-auth" id="navAuth">
+          <a href="../login.html" class="nav-link">Login</a>
+          <a href="../register.html" class="nav-link">Register</a>
+        </li>
+        <li class="nav-user" id="navUser" style="display: none;">
+          <a href="../profile.html" class="nav-link" id="navUserName">Profile</a>
+          <a href="#" class="nav-link" id="navLogout">Logout</a>
+        </li>
+        <li class="nav-admin" id="navAdmin" style="display: none;">
+          <a href="dashboard.html" class="nav-link">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Admin Orders Section -->
+  <section class="admin-section">
+    <div class="container">
+      <h2 class="section-title">Manage Orders</h2>
+      <div class="admin-table-container">
+        <table class="admin-table" id="ordersTable">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <tr><td colspan="6" class="loading">Loading orders...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status Modal -->
+  <div class="modal" id="statusModal">
+    <div class="modal-content">
+      <span class="modal-close" id="closeStatusModal">&times;</span>
+      <h3>Update Order Status</h3>
+      <form id="statusForm">
+        <input type="hidden" id="orderId">
+        <div class="form-group">
+          <label for="orderStatus">Status</label>
+          <select id="orderStatus" required>
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Update Status</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 ShopEase. Built for CodeAlpha Internship.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

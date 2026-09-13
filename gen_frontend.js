@@ -1,0 +1,6 @@
+"const fs = require('fs');"  
+"const path = require('path');"  
+""  
+"// Write CSS"  
+"const cssContent = require('fs').readFileSync('frontend/css/style.css', 'utf8');"  
+"console.log('CSS exists:', fs.existsSync('frontend/css/style.css'));" 

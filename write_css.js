@@ -1,0 +1,8 @@
+"const fs=require('fs');"  
+"const css = \`"  
+"* { margin: 0; padding: 0; box-sizing: border-box; }"  
+"body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }"  
+"a { text-decoration: none; color: inherit; }"  
+".container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }"  
+"\`;"  
+"fs.writeFileSync('frontend/css/style.css', css);" 

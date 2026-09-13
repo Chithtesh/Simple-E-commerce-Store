@@ -1,0 +1,7 @@
+"const fs = require('fs');"  
+"const path = require('path');"  
+""  
+"function wf(p, c) { fs.writeFileSync(p, c); console.log('Created:', p); }"  
+""  
+"wf('frontend/css/style.css', require('fs').readFileSync('frontend/css/style.css', 'utf8') || '');"  
+"console.log('Generator ready');" 
